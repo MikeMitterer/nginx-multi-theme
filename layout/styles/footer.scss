@@ -1,0 +1,33 @@
+// Basic Config
+@import "_config";
+
+
+/* If the content doesn't fill the entire browser window, the footer should
+ * still fit to the bottom of the page - in this case the bottom of the browser
+ * window. The following snippet will expand the content of the page, so the
+ * footer will be displayed at the bottom of the page or the window, depending
+ * on the size of the content.
+ *
+ * This snippet is based on an answer (https://stackoverflow.com/a/27635568)
+ * of abmmhasan (https://stackoverflow.com/users/3300834) at
+ * stackoverlow.com, licensed under CC-BY-SA 3.0. */
+
+html {
+    position:   relative;
+    min-height: 100%;
+}
+
+.footer {
+    background-color: $brandColor;
+    
+    position: absolute;
+    bottom:   0;
+    width:    100%;
+    margin-bottom: 0;
+
+    a,
+    a:hover,
+    a:focus {
+        color: white;
+    }
+}

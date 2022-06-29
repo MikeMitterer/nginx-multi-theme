@@ -1,0 +1,16 @@
+// Theme Colors
+@import "_colors";
+
+// Default setting, can be overwritten!
+$brandColor: $green !default;
+
+/**
+ * Footer height,
+ * Can be overwritten in theme.scss
+ */
+$footer-height: 40px !default;
+
+/**
+ * The height of the header navbar.
+ */
+$header-height: 24px !default;

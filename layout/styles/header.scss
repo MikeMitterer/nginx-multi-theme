@@ -1,0 +1,35 @@
+// Basic Config
+@import "_config";
+
+/**
+ * This file configures the header navbar. There will be only slight differences
+ * from bootstrap's default navbar: the background is green with white text.
+ *
+ * NOTE: This class should be used together with the `navbar` class.
+ */
+
+/**
+ * The height of the header navbar.
+ * Can be overwritten in theme.scss
+ */
+$header-height: 24px !default;
+
+.header {
+    background-color: $brandColor;
+    color:            $white;
+
+    /* The default bootstrap navbar is higher than we'd like to have it. The
+     * following snippet will minimize it to the configured height above.
+     *
+     * This snippet is based on an answer (https://stackoverflow.com/a/25093300)
+     * of Hoang Vu Tgtt (https://stackoverflow.com/users/1804068) at
+     * stackoverlow.com, licensed under CC-BY-SA 3.0. */
+    min-height: $header-height;
+
+    .navbar-brand {
+        padding:     0 $header-height / 3;
+        font-size:   $header-height * 2/3;
+        line-height: $header-height;
+        height:      $header-height;
+    }
+}
