@@ -14,11 +14,21 @@
     </div>
   </footer>
 
-  <script type="text/javascript">
-    generateBreadcrumbs();
-    generateList();
-  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox-plus-jquery.min.js"></script>
+  <script>
+    document.getElementById('style-css').setAttribute('href', `${themeFolder}/style.css`);
+    document.getElementById('breadcrumbs-js').setAttribute('src', `${themeFolder}/js/breadcrumbs.js`);
+    document.getElementById('list-js').setAttribute('src', `${themeFolder}/js/list.js`);
+    document.getElementById('favicon').setAttribute('href', `${themeFolder}/favicon.png`);
+  </script>
+   <script type="text/javascript">
+     window.addEventListener('load', (event) =>{
+
+       generateBreadcrumbs();
+       generateList();
+
+     });
+   </script>
 </body>
 
 </html>

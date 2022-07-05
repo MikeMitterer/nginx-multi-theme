@@ -66,33 +66,14 @@
  * See the LICENSE file for details.
  */
 
-// Theme Colors
-@import "styles/_config";
+// Import Colors and make default settings
+@import "../styles/_config";
 
-// Config
-/**
- * The height of the footer navbar.
- *
- * The height of the footer is required for calculating paddings and margins for
- * the body. Although it won't be set for the footer (the default value from
- * bootstrap will be used), it will be defined here to be used in other files.
- */
-$footer-height: 45px;
+$brandColor: #912368;
 
-/**
- * The height of the header navbar.
- */
-$header-height: 24px;
+$dark-bgColor: #2B2B2B;
+$dark-linkColor: #75ba55;
 
-
-$brandColor: $blue;
-
-/* Although imported files will be imported only once by the less compiler by
- * default, the individual files will NOT import any other less files for
- * simplicity, but all files included in this main file. However, as variables
- * and functions are lazy loaded, there shouldn't be any dependency problems. */
-@import "styles/body";
-@import "styles/breadcrumb";
-@import "styles/footer";
-@import "styles/header";
-@import "styles/list";
+@import "../styles/page";
+@import "../styles/breadcrumb";
+@import "../styles/list";

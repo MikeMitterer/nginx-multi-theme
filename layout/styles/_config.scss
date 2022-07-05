@@ -1,16 +1,19 @@
-// Theme Colors
-@import "_colors";
+@import "colors";
 
-// Default setting, can be overwritten!
-$brandColor: $green !default;
-
-/**
- * Footer height,
- * Can be overwritten in theme.scss
- */
-$footer-height: 40px !default;
+$footer-height: 45px !default;
 
 /**
  * The height of the header navbar.
  */
 $header-height: 24px !default;
+
+
+$brandColor: $indigo !default;
+
+$light-Color: $gray-900 !default;
+$light-bgColor: $white !default;
+$light-linkColor: $light-Color !default;
+
+$dark-Color: $gray-300 !default;
+$dark-bgColor: $gray-600 !default;
+$dark-linkColor: $dark-Color !default;
