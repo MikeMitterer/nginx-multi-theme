@@ -22,6 +22,19 @@ pipeline {
                 }
             }
         }
+        stage('Post-Process') {
+            steps {
+                timeout(time: 15, unit: 'MINUTES') {
+                    ansiColor('xterm') {
+                        // Rechte in .themes so setzen dass sie über NGINX eingebunden
+                        // werden können
+                        sh 'chgrp www-data .themes'
+                        sh 'find ${BUILD_FOLDER} -type d -exec chmod 750 {} \;'
+                        sh 'find ${BUILD_FOLDER} -type f -exec chmod 640 {} \;'
+                    }
+                }
+            }
+        }
     }
 
     // post {

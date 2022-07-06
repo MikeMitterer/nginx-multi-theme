@@ -21,15 +21,16 @@ dynamic code.
 
 ## Usage
 
-1. Install `sassc` and `uglifyjs`
+1. Install `sassc` (`sudo apt-get install -y sassc` ) and `uglifyjs`  
+   (`sudo npm -g install uglify-js`) 
 
-2. Install the FancyIndex-Module: <https://www.howtoinstall.me/ubuntu/18-04/libnginx-mod-http-fancyindex/>
+3. Install the FancyIndex-Module: <https://www.howtoinstall.me/ubuntu/18-04/libnginx-mod-http-fancyindex/>
 
-3. Clone this repo: `git clone https://github.com/MikeMitterer/nginx-multi-theme`  
+4. Clone this repo: `git clone https://github.com/MikeMitterer/nginx-multi-theme`  
 
-4. cd into nginx-multi-theme
+5. cd into nginx-multi-theme
  
-5. Configure your vhost to use the theme's resources for fancyindex:
+6. Configure your vhost to use the theme's resources for fancyindex:
     ```
     # Fancyindex
     fancyindex             on;
