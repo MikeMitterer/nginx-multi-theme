@@ -1,6 +1,9 @@
 # Basics zum Makefile:
 #	https://makefiletutorial.com/#getting-started
 #
+# Makefile functions:
+# 	https://www.gnu.org/software/make/manual/html_node/Functions.html
+#
 # You can set these variables from the command line.
 # BUILDDIR      = _build
 
@@ -16,8 +19,14 @@ SASSC ?= sassc
 UGLIFYJS ?= uglifyjs
 UGLIFYJS_FLAGS = --compress --mangle --comments '/^!/'
 
-# BUILD_FOLDER=.theme
-BUILD_FOLDER=/Volumes/Distribution/.themes
+BUILD_FOLDER=.themes
+# BUILD_FOLDER=/Volumes/Distribution/.themes
+
+ifdef DEV_MAKE
+	# With a bit of work it's easy to include this lib
+	# https://github.com/MikeMitterer/make-lib
+	include ${DEV_MAKE}/colours.mk
+endif
 
 help:
 	@echo
@@ -26,11 +35,12 @@ help:
 	@echo "    ${YELLOW}help          ${GREEN}This help message${RESET}"
 	@echo "    ${YELLOW}clean         ${GREEN}Cleans up all unnecessary files and dirs${RESET}"
 	@echo "    ${YELLOW}build         ${GREEN}Build your application package${RESET}"
-	@echo "    ${YELLOW}deploy        ${GREEN}Builds package and deploys it to ${TARGET_SSH_HOST}-Server${RESET}"
+	@echo "    ${YELLOW}all | deploy  ${GREEN}Builds package in ${WHITE}${BUILD_FOLDER}${GREEN}-Folder${RESET}"
 	@echo
 	@echo "${BLUE}Hints:${NC}"
-	@echo "    Auf der Serverseite: (in /srv/dist)"
-	@echo "                         rm -rf .theme1 && cp -a /srv/share/NginxTheme/theme1/ .theme1 && chgrp -R www-data .theme1"
+	@echo "    Serverside (in /srv/dist):"
+	@echo "        rm -rf .theme1 && cp -a /srv/share/NginxTheme/theme1/ .theme1 && chgrp -R www-data .theme1"
+	@echo
 
 # Clean the build directory.
 clean:
@@ -39,11 +49,6 @@ clean:
 # Generate the build directory if it doesn't exist yet.
 build:
 	mkdir -p ${BUILD_FOLDER}/theme1/js ${BUILD_FOLDER}/theme2/js
-
-#${BUILD_FOLDER}/theme1/%.css: layout/theme1/%.scss build
-#	#mkdir -p $(dir $@)
-#	@echo "-- "$<", $(dir $@) > $@"
-#	$(SASSC) -M $< $@
 
 # The following definitions will be used to generate CSS files from the
 # corresponding SASS files.
@@ -70,10 +75,6 @@ ${BUILD_FOLDER}/js/%.js: layout/js/%.js build
 	$(UGLIFYJS) $(UGLIFYJS_FLAGS) ${} -- $< > ${BUILD_FOLDER}/theme2/js/$(notdir $<)
 
 
-#${BUILD_FOLDER}/images/%.ico: layout/images/%.ico build
-##   @echo "$< > $@"
-#	cp $< $@
-
 # Most of the files just need to be copied into the build directory. This rule
 # will match all files, that are not matched by any other (specialized) rule
 # above.
@@ -94,10 +95,8 @@ all: ${BUILD_FOLDER}/js/list.js        \
      ${BUILD_FOLDER}/theme2/style.css \
      finalize
 
+# For now - nothing todo here...
 finalize:
-	# chmod -R 644 ${BUILD_FOLDER}/theme1/*.ico
-	# find ${BUILD_FOLDER} -type d -exec chmod 755 {} \;
-	# find ${BUILD_FOLDER} -type f -exec chmod 644 {} \;
 
 
 

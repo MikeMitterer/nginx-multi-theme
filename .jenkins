@@ -1,0 +1,19 @@
+# ------------------------------------------------------------------------------
+# Config-File for Jenkins pushTrigger automatisation
+#
+# In der Jenkins-Konfiguration muss Builds von außerhalb starten aktiv sein!
+#
+# ------------------------------------------------------------------------------
+
+# http://jenkins.local:2080/job/[Full Job NAME], e.g. Scripts/job/Utils
+JENKINS_JOB_NAME="NGINX-Theme"
+
+# by default your GIT-Origin
+# (Builds von außerhalb starten / Authentifizierungstoken)
+JENKINS_JOB_TOKEN="nginx-multi-theme"
+
+# Parameter werden bei manchen builds benötigt
+JENKINS_PARAMS=(
+    # "PUBLISH_TO_NMP=true"
+    # "delay=1"
+)
