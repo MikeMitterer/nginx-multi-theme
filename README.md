@@ -1,6 +1,8 @@
 # Multi-Theme for nginx's fancyindex module
 
-![](doc/screenshot.png)
+![](doc/screenshot1.png)
+
+![](doc/screenshot2.png)
 
 
 ## About
@@ -24,27 +26,46 @@ dynamic code.
 1. Install `sassc` (`sudo apt-get install -y sassc` ) and `uglifyjs`  
    (`sudo npm -g install uglify-js`) 
 
-3. Install the FancyIndex-Module: <https://www.howtoinstall.me/ubuntu/18-04/libnginx-mod-http-fancyindex/>
+2. Install the FancyIndex-Module: <https://www.howtoinstall.me/ubuntu/18-04/libnginx-mod-http-fancyindex/>
 
-4. Clone this repo: `git clone https://github.com/MikeMitterer/nginx-multi-theme`  
+3. Clone this repo: `git clone https://github.com/MikeMitterer/nginx-multi-theme`  
 
-5. cd into nginx-multi-theme
+4. cd into nginx-multi-theme
  
-6. Configure your vhost to use the theme's resources for fancyindex:
-    ```
-    # Fancyindex
-    fancyindex             on;
-    fancyindex_header      "/theme/header.html";
-    fancyindex_footer      "/theme/footer.html";
-    fancyindex_show_path   off;
-    fancyindex_name_length 255;
-    fancyindex_exact_size  off;
-    fancyindex_localtime   on;
+   1. Configure your vhost to use the theme's resources for fancyindex:
+       ```       
+       location / {
+           # First attempt to serve request as file, then
+           # as directory, then fall back to displaying a 404.
+           try_files $uri $uri/ =404;
 
-    location /theme {
-        alias /srv/www/fileserver/theme;
-    }
-    ```
+           # autoindex on;
+           # autoindex_exact_size off;
+           # autoindex_format html;
+           # autoindex_localtime on;
+
+           # Fancyindex
+           fancyindex on;              # Enable fancy indexes.
+           fancyindex_exact_size off;  # Output human-readable file sizes.
+
+           fancyindex_header /.theme/header.html;
+           fancyindex_footer /.theme/footer.html;
+           fancyindex_css_href /.theme/style.css;
+
+           fancyindex_show_path   off;
+           fancyindex_name_length 255;
+           fancyindex_exact_size  off;
+           fancyindex_localtime   on;
+      
+           # fancyindex_time_format "%B %e, %Y";
+
+           location /.theme { 
+               # After switching from theme1 to theme2 you have to 'nginx -s reload'
+               # to active your new theme
+               alias /var/jenkins/workspace/Documentation/NGINX-Theme/.themes/theme1;
+           }   
+       }
+       ```
 
 
 ## License
