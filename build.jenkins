@@ -28,7 +28,7 @@ pipeline {
                     ansiColor('xterm') {
                         // Rechte in .themes so setzen dass sie über NGINX eingebunden
                         // werden können
-                        sh 'sudo chgrp www-data .themes'
+                        sh 'sudo chgrp -R www-data .themes'
                         sh 'sudo find .themes -type d -exec chmod 750 {} \\;'
                         sh 'sudo find .themes -type f -exec chmod 640 {} \\;'
                     }
