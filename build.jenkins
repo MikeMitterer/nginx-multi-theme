@@ -29,8 +29,8 @@ pipeline {
                         // Rechte in .themes so setzen dass sie über NGINX eingebunden
                         // werden können
                         sh 'sudo chgrp www-data .themes'
-                        sh 'sudo find ${BUILD_FOLDER} -type d -exec chmod 750 {} ;'
-                        sh 'sudo find ${BUILD_FOLDER} -type f -exec chmod 640 {} ;'
+                        sh 'sudo find .themes -type d -exec chmod 750 {} ;'
+                        sh 'sudo find .themes -type f -exec chmod 640 {} ;'
                     }
                 }
             }
