@@ -68,6 +68,11 @@ dynamic code.
        ```
 
 
+
+## Honor
+Special Thanks to 'Alexander Haase'. His Theme <https://github.com/alehaa/nginx-fancyindex-flat-theme>
+heavily inspired me to make this theme!
+
 ## License
 
 The nginx-multi-theme is free software: you can redistribute it and/or
@@ -82,6 +87,5 @@ can be found in the [LICENSE](LICENSE) file.
 
 &copy; 2022 Mike Mitterer
 
-## Honor 
-Special Thanks to 'Alexander Haase'. His Theme <https://github.com/alehaa/nginx-fancyindex-flat-theme>
-heavily inspired me to make this theme!
+## MangoLila
+My compay - [MangoLila](http://www.MangoLila.at/)
