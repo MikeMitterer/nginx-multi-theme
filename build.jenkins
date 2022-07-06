@@ -1,0 +1,34 @@
+pipeline {
+    agent {  label 'linux'  }
+
+    stages {
+        stage('Preparation') {
+            steps {
+                timeout(time: 15, unit: 'MINUTES') {
+                    ansiColor('xterm') {
+                        // Alles auf 0
+                        sh 'make clean'
+                    }
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                timeout(time: 15, unit: 'MINUTES') {
+                    ansiColor('xterm') {
+                        // Daten werden in das "site"-Directory geschrieben
+                        sh 'make all'
+                    }
+                }
+            }
+        }
+    }
+
+    // post {
+    //     always {
+    //         ansiColor('xterm') {
+    //             sh 'docker/_ci/run.sh --stop'
+    //         }
+    //     }
+    // }
+}

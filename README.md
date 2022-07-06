@@ -1,7 +1,4 @@
-# Flat theme for nginx's fancyindex module
-
-[![](https://img.shields.io/github/issues-raw/alehaa/nginx-fancyindex-flat-theme.svg?style=flat-square)](https://github.com/alehaa/nginx-fancyindex-flat-theme/issues)
-[![](https://img.shields.io/badge/license-GPLv3-blue.svg?style=flat-square)](LICENSE)
+# Multi-Theme for nginx's fancyindex module
 
 ![](doc/screenshot.png)
 
@@ -24,10 +21,13 @@ dynamic code.
 
 ## Usage
 
-1. Get the latest resources from [GitHub releases](https://github.com/alehaa/nginx-fancyindex-flat-theme/releases)
-   or build them on your own by running `make` inside this repository and copy
-   these files into any location accessible by *nginx*.
-2. Configure your vhost to use the theme's resources for fancyindex:
+1. Install the FancyIndex-Module: <https://www.howtoinstall.me/ubuntu/18-04/libnginx-mod-http-fancyindex/>
+
+2. Clone this repo: `git clone https://github.com/MikeMitterer/nginx-multi-theme`  
+
+3. cd into nginx-multi-theme
+ 
+5. Configure your vhost to use the theme's resources for fancyindex:
     ```
     # Fancyindex
     fancyindex             on;
@@ -46,7 +46,7 @@ dynamic code.
 
 ## License
 
-The nginx-fancyindex-flat-theme is free software: you can redistribute it and/or
+The nginx-multi-theme is free software: you can redistribute it and/or
 modify it under the terms of the GNU General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your option)
 any later version.
@@ -56,4 +56,8 @@ ANY WARRANTY**; without even the implied warranty of **MERCHANTABILITY** or
 **FITNESS FOR A PARTICULAR PURPOSE**. A Copy of the GNU General Public License
 can be found in the [LICENSE](LICENSE) file.
 
-&copy; 2018 Alexander Haase
+&copy; 2022 Mike Mitterer
+
+## Honor 
+Special Thanks to 'Alexander Haase'. His Theme <https://github.com/alehaa/nginx-fancyindex-flat-theme>
+heavily inspired me to make this theme!
